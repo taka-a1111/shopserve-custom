@@ -57,18 +57,18 @@ body{font-family:"Noto Sans JP",sans-serif;color:var(--text);background:#fff;ove
 /* --- 商品画像 --- */
 .column4 .itemThumb-wrap{position:relative}
 .column4 .itemThumb{margin:0}
-.column4 .itemThumb a{display:block;border:none;border-radius:0;overflow:hidden;background:#fff;aspect-ratio:1/1}
+.column4 .itemThumb a{display:block;border:none;border-radius:0;overflow:hidden;background:#fff;aspect-ratio:1/1;width:90%;margin:0 auto}
 .column4 .itemThumb img,
 .column4 .item-list-span-img img{width:100%;height:100%;object-fit:cover;transition:.4s}
 .column4:hover .itemThumb img{transform:scale(1.04)}
 .column4:hover{transform:translateY(-4px)}
 .column4{transition:.25s}
 
-/* --- 送料無料バッジ（商品名の【送料無料】をJSで検出し .is-free 付与） --- */
-.column4.is-free .itemThumb-wrap::after{
-  content:"送料無料";position:absolute;top:9px;left:9px;z-index:2;
-  background:var(--red);color:#fff;font-size:11px;font-weight:700;
-  padding:3px 9px;border-radius:4px;letter-spacing:.03em;
+/* --- 送料無料ラベル（価格の下・ダークグレー。JSで【送料無料】検出→価格直後に挿入） --- */
+.column4 .ship-free{
+  align-self:flex-start;margin-top:8px;
+  background:var(--dark);color:#fff;font-size:11px;font-weight:700;
+  padding:3px 10px;border-radius:4px;letter-spacing:.03em;
 }
 
 /* --- 商品名（2行省略） --- */
@@ -92,8 +92,8 @@ body{font-family:"Noto Sans JP",sans-serif;color:var(--text);background:#fff;ove
 .column4 .selling_price{font-size:21px;font-weight:700;color:var(--red);line-height:1}
 .column4 .taxin{font-size:11px;font-weight:500;color:var(--red);margin-left:2px;line-height:1}
 .column4 .discount_rate{
-  background:var(--red);color:#fff;font-size:12.5px;font-weight:700;
-  padding:9px 9px;border-radius:5px;line-height:1;
+  background:var(--red);color:#fff;font-size:13.5px;font-weight:700;
+  padding:7px 9px;border-radius:5px;line-height:1;
   margin-left:9px;
 }
 .column4 .sps-itemList-stockDisp{display:none}
@@ -124,7 +124,8 @@ body{font-family:"Noto Sans JP",sans-serif;color:var(--text);background:#fff;ove
 @media(max-width:760px){
   .column-set{grid-template-columns:repeat(2,1fr);gap:20px 12px}
   .column4 .selling_price{font-size:18px}
-  .column4 .discount_rate{font-size:11px;padding:4px 7px}
+  .column4 .itemThumb a{width:100%}
+  .column4 .discount_rate{font-size:12.5px;padding:6px 8px}
 }
 
 </style></head>
@@ -146,7 +147,7 @@ body{font-family:"Noto Sans JP",sans-serif;color:var(--text);background:#fff;ove
         <div class="sort"><span class="label">並べ替え：</span><a href="#" class="active">おすすめ順</a><a href="#">価格順</a><a href="#">名前順</a></div>
       </div>
       <div class="column-set">
-    <section class="column4 is-free">
+    <section class="column4">
       <div class="itemThumb-wrap">
         <p class="itemThumb">
           <a id="0" href="#" title="【一括お届け】ミル・ガトースイーツセレクト B2029-078">
@@ -164,9 +165,10 @@ body{font-family:"Noto Sans JP",sans-serif;color:var(--text);background:#fff;ove
         <span class="selling_price">¥1,080</span><span class="taxin">(税込)</span>
         <span class="discount_rate">10%OFF</span>
       </p>
+      <p class="ship-free">送料無料</p>
       <p class="sps-itemList-stockDisp"></p>
     </section>
-    <section class="column4 is-free">
+    <section class="column4">
       <div class="itemThumb-wrap">
         <p class="itemThumb">
           <a id="1" href="#" title="【一括お届け】あまおう苺ラングドシャ B2029-107">
@@ -184,9 +186,10 @@ body{font-family:"Noto Sans JP",sans-serif;color:var(--text);background:#fff;ove
         <span class="selling_price">¥1,080</span><span class="taxin">(税込)</span>
         <span class="discount_rate">10%OFF</span>
       </p>
+      <p class="ship-free">送料無料</p>
       <p class="sps-itemList-stockDisp"></p>
     </section>
-    <section class="column4 is-free">
+    <section class="column4">
       <div class="itemThumb-wrap">
         <p class="itemThumb">
           <a id="2" href="#" title="【一括お届け】カフェセレクション B2030-069">
@@ -204,9 +207,10 @@ body{font-family:"Noto Sans JP",sans-serif;color:var(--text);background:#fff;ove
         <span class="selling_price">¥1,080</span><span class="taxin">(税込)</span>
         <span class="discount_rate">10%OFF</span>
       </p>
+      <p class="ship-free">送料無料</p>
       <p class="sps-itemList-stockDisp"></p>
     </section>
-    <section class="column4 is-free">
+    <section class="column4">
       <div class="itemThumb-wrap">
         <p class="itemThumb">
           <a id="3" href="#" title="【一括お届け】ネスカフェ・リプトン・はちみつギフト B2030-105">
@@ -224,6 +228,7 @@ body{font-family:"Noto Sans JP",sans-serif;color:var(--text);background:#fff;ove
         <span class="selling_price">¥1,080</span><span class="taxin">(税込)</span>
         <span class="discount_rate">10%OFF</span>
       </p>
+      <p class="ship-free">送料無料</p>
       <p class="sps-itemList-stockDisp"></p>
     </section>
     <section class="column4">
@@ -246,7 +251,7 @@ body{font-family:"Noto Sans JP",sans-serif;color:var(--text);background:#fff;ove
       </p>
       <p class="sps-itemList-stockDisp"></p>
     </section>
-    <section class="column4 is-free">
+    <section class="column4">
       <div class="itemThumb-wrap">
         <p class="itemThumb">
           <a id="5" href="#" title="【一括お届け】宇治茶詰合せ（伝承銘茶） B2032-060">
@@ -264,6 +269,7 @@ body{font-family:"Noto Sans JP",sans-serif;color:var(--text);background:#fff;ove
         <span class="selling_price">¥1,485</span><span class="taxin">(税込)</span>
         <span class="discount_rate">10%OFF</span>
       </p>
+      <p class="ship-free">送料無料</p>
       <p class="sps-itemList-stockDisp"></p>
     </section>
     <section class="column4">
@@ -286,7 +292,7 @@ body{font-family:"Noto Sans JP",sans-serif;color:var(--text);background:#fff;ove
       </p>
       <p class="sps-itemList-stockDisp"></p>
     </section>
-    <section class="column4 is-free">
+    <section class="column4">
       <div class="itemThumb-wrap">
         <p class="itemThumb">
           <a id="7" href="#" title="【一括お届け】華優雅 えびせんギフト B2032-106">
@@ -304,9 +310,10 @@ body{font-family:"Noto Sans JP",sans-serif;color:var(--text);background:#fff;ove
         <span class="selling_price">¥1,980</span><span class="taxin">(税込)</span>
         <span class="discount_rate">10%OFF</span>
       </p>
+      <p class="ship-free">送料無料</p>
       <p class="sps-itemList-stockDisp"></p>
     </section>
-    <section class="column4 is-free">
+    <section class="column4">
       <div class="itemThumb-wrap">
         <p class="itemThumb">
           <a id="8" href="#" title="【一括お届け】海の幸詰合せ B2033-050">
@@ -324,9 +331,10 @@ body{font-family:"Noto Sans JP",sans-serif;color:var(--text);background:#fff;ove
         <span class="selling_price">¥2,970</span><span class="taxin">(税込)</span>
         <span class="discount_rate">10%OFF</span>
       </p>
+      <p class="ship-free">送料無料</p>
       <p class="sps-itemList-stockDisp"></p>
     </section>
-    <section class="column4 is-free">
+    <section class="column4">
       <div class="itemThumb-wrap">
         <p class="itemThumb">
           <a id="9" href="#" title="【一括お届け】播州の糸 播州そうめん B2033-067">
@@ -344,6 +352,7 @@ body{font-family:"Noto Sans JP",sans-serif;color:var(--text);background:#fff;ove
         <span class="selling_price">¥2,475</span><span class="taxin">(税込)</span>
         <span class="discount_rate">10%OFF</span>
       </p>
+      <p class="ship-free">送料無料</p>
       <p class="sps-itemList-stockDisp"></p>
     </section>
     <section class="column4">
@@ -366,7 +375,7 @@ body{font-family:"Noto Sans JP",sans-serif;color:var(--text);background:#fff;ove
       </p>
       <p class="sps-itemList-stockDisp"></p>
     </section>
-    <section class="column4 is-free">
+    <section class="column4">
       <div class="itemThumb-wrap">
         <p class="itemThumb">
           <a id="11" href="#" title="【一括お届け】三味逸選 こだわり味付海苔詰合せ B2034-064">
@@ -384,6 +393,7 @@ body{font-family:"Noto Sans JP",sans-serif;color:var(--text);background:#fff;ove
         <span class="selling_price">¥2,970</span><span class="taxin">(税込)</span>
         <span class="discount_rate">10%OFF</span>
       </p>
+      <p class="ship-free">送料無料</p>
       <p class="sps-itemList-stockDisp"></p>
     </section>
       </div>
